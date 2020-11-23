@@ -1,6 +1,6 @@
 name "xlib-d"
 description "D bindings to Xlib"
-copyright "Copyright © 2015, Remi Thebault"
+copyright "Copyright © 2015, 2020, Remi Thebault"
 authors "Remi Thebault"
 license "MIT"
 libs "X11" "X11-xcb"
