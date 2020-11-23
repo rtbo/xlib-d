@@ -1,17 +1,18 @@
 module X11.Xlib_xcb;
 
-import derelict.util.xtypes;
-import xcb.xcb;
+import X11.X;
 
 // bindings to Xlib-xcb
 
-extern (C) {
+alias xcb_connection_t = void;
 
+extern (C) {
 
     enum XEventQueueOwner {
         XlibOwnsEventQueue = 0,
         XCBOwnsEventQueue
     }
+
     alias XlibOwnsEventQueue = XEventQueueOwner.XlibOwnsEventQueue;
     alias XCBOwnsEventQueue = XEventQueueOwner.XCBOwnsEventQueue;
 

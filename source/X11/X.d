@@ -1,16 +1,59 @@
 module X11.X;
 
-public import derelict.util.xtypes;
+alias Bool = int;
+alias Status = int;
+alias VisualID = uint;
+alias XPointer = byte*;
+
+alias Display = void;
+alias XID = uint;
+alias Window = XID;
+alias Drawable = XID;
+alias Font = XID;
+alias Pixmap = XID;
+alias Cursor = XID;
+alias Colormap = XID;
+alias GContext = XID;
+alias KeySym = XID;
+
+struct XExtData
+{
+    int number;
+    XExtData* next;
+    extern (C) int function(XExtData*) free_private;
+    XPointer private_data;
+}
+
+struct Visual
+{
+    XExtData* ext_data;
+    VisualID visualid;
+    int _class;
+    uint red_mask, green_mask, blue_mask;
+    int bits_per_rgb;
+    int map_entries;
+}
+
+struct XVisualInfo
+{
+    Visual* visual;
+    VisualID visualid;
+    int screen;
+    int depth;
+    int _class;
+    uint red_mask;
+    uint green_mask;
+    uint blue_mask;
+    int colormap_size;
+    int bits_per_rgb;
+}
+
 
 // some types not in derelict.util.xtypes
-alias uint Mask;
-alias uint Atom;
-alias uint Time;
-alias ubyte KeyCode;
-
-
-
-
+alias Mask = uint;
+alias Atom = uint;
+alias Time = uint;
+alias KeyCode = ubyte;
 
 /*****************************************************************
  * RESERVED RESOURCE AND CONSTANT DEFINITIONS
