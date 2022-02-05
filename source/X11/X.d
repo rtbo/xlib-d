@@ -1,12 +1,14 @@
 module X11.X;
 
+import core.stdc.config;
+
 alias Bool = int;
 alias Status = int;
-alias VisualID = uint;
+alias VisualID = c_ulong;
 alias XPointer = byte*;
 
 alias Display = void;
-alias XID = uint;
+alias XID = c_ulong;
 alias Window = XID;
 alias Drawable = XID;
 alias Font = XID;
@@ -50,9 +52,9 @@ struct XVisualInfo
 
 
 // some types not in derelict.util.xtypes
-alias Mask = uint;
-alias Atom = uint;
-alias Time = uint;
+alias Mask = c_ulong;
+alias Atom = c_ulong;
+alias Time = c_ulong;
 alias KeyCode = ubyte;
 
 /*****************************************************************
